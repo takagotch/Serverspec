@@ -1,0 +1,11 @@
+#.rspec
+
+#test exec
+sudo launchctl unload /System/Library/LaunchDemons/org.apache.httpd.plist
+sudo rake spec
+sudo launchctl load -w /System/Library/LaunchDemons/org.apache.httpd.plist
+sudo rake spec
+sudo launch unload /System/Library/LaunchDaemons/org.apache.httpd.plist
+
+#ssh remotehost exec
+serverspec-init
