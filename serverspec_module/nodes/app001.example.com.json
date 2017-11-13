@@ -1,0 +1,7 @@
+#app001.example.com.json
+
+{
+  "run_list":[
+    "role[app]"
+  ]
+}
