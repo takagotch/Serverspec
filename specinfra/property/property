@@ -1,0 +1,2 @@
+puts property['key1']
+puts property['key2']

@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'aws-sdk'
+require 'json'
+
+hosts = []
+
+ec2 = AWS.ec2
+ec2.instances.each do |i|
+  tags = i.tags.to_h
+  roles - tags.delete('Roles').split(/,\s+/)
+  hosts << { :ipaddress => i.ip_address, :roles => roles }.merge(tags)
+end
+
+puts JSON.dump(hosts)

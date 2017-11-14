@@ -1,0 +1,23 @@
+require 'rake'
+require 'rspec/core/rake_task'
+require 'json'
+
+task :spec       => 'spec:all'
+task :default    => :spec
+
+namespace :spec do
+  hosts = JSON.load(File.new('host.json'))
+  
+  task :all      => hosts.map{|h| h['Name']}
+  task :default  => :all
+  
+  hosts.each do |host|
+    name = host['Name']
+	desc "Run serverspec tests to #(name)"
+	RSpec::Core::RakeTask.new(name) do |t|
+	  ENV['TARGET_HOST'] = name
+	  ENV['TARGET_IP']   = host['ipaddress']
+	  t.pattern = 'spec/{(#(host['roles'].join(','))}/*_spec.rb'
+	end
+  end
+end

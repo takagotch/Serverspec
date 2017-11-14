@@ -1,0 +1,37 @@
+[
+  {
+    "ipaddress": "54.64.92.119",
+	"roles": [
+	  "app"
+	],
+	"Name": "app-001"
+  },
+  {
+    "ipaddress": "54.64.92.120",
+	"roles": [
+	  "app"
+	],
+	"Name": "app-002"
+  },
+  {
+    "ipaddress": "54.64.92.121",
+	"roles": [
+	  "proxy"
+	],
+	"Name": "proxy-002"
+  },
+  {
+    "ipaddress": "54.64.92.123",
+	"roles": [
+	  "db"
+	],
+	"Name": "db-001"
+  },
+  {
+    "ipaddress": "54.64.92.123",
+	"roles": [
+	  "db"
+	],
+	"Name": "db-002"
+  }
+]
